@@ -14573,7 +14573,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[126]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
@@ -14594,7 +14594,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[122]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Getting all the matches from VCT Stage 1: Masters Reykjavik</span>
@@ -14617,7 +14617,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[123]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[164]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Getting all the individual games from all the matches we got in the previous cell</span>
@@ -14641,39 +14641,88 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[124]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[166]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Creating a table that will hold agent pick rates on each map</span>
-<span class="n">pickrate</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Bind&quot;</span><span class="p">,</span> <span class="s2">&quot;Haven&quot;</span><span class="p">,</span> <span class="s2">&quot;Split&quot;</span><span class="p">,</span> <span class="s2">&quot;Ascent&quot;</span><span class="p">,</span> <span class="s2">&quot;Icebox&quot;</span><span class="p">,</span> <span class="s2">&quot;Breeze&quot;</span><span class="p">,</span> <span class="s2">&quot;Fracture&quot;</span><span class="p">],</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Creating 3 tables that will hold agent pick rates on each map, each agents stats on each map, and winrate table</span>
+<span class="n">pick_rate</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Bind&quot;</span><span class="p">,</span> <span class="s2">&quot;Haven&quot;</span><span class="p">,</span> <span class="s2">&quot;Split&quot;</span><span class="p">,</span> <span class="s2">&quot;Ascent&quot;</span><span class="p">,</span> <span class="s2">&quot;Icebox&quot;</span><span class="p">,</span> <span class="s2">&quot;Breeze&quot;</span><span class="p">,</span> <span class="s2">&quot;Fracture&quot;</span><span class="p">],</span> 
                      <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;# Played&quot;</span><span class="p">,</span> <span class="s2">&quot;Jett&quot;</span><span class="p">,</span> <span class="s2">&quot;Reyna&quot;</span><span class="p">,</span> <span class="s2">&quot;Neon&quot;</span><span class="p">,</span> <span class="s2">&quot;Phoenix&quot;</span><span class="p">,</span> <span class="s2">&quot;Raze&quot;</span><span class="p">,</span> <span class="s2">&quot;Yoru&quot;</span><span class="p">,</span> <span class="s2">&quot;Sova&quot;</span><span class="p">,</span> <span class="s2">&quot;Breach&quot;</span><span class="p">,</span> <span class="s2">&quot;Skye&quot;</span><span class="p">,</span> <span class="s2">&quot;KAY/O&quot;</span><span class="p">,</span> <span class="s2">&quot;Brimstone&quot;</span><span class="p">,</span> <span class="s2">&quot;Viper&quot;</span><span class="p">,</span> <span class="s2">&quot;Astra&quot;</span><span class="p">,</span> <span class="s2">&quot;Omen&quot;</span><span class="p">,</span> <span class="s2">&quot;Killjoy&quot;</span><span class="p">,</span> <span class="s2">&quot;Cypher&quot;</span><span class="p">,</span> <span class="s2">&quot;Chamber&quot;</span><span class="p">,</span> <span class="s2">&quot;Sage&quot;</span><span class="p">])</span>
-<span class="n">pickrate</span> <span class="o">=</span> <span class="n">pickrate</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
-<span class="n">pickrate</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;# Played&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">agent_stats</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Jett&quot;</span><span class="p">,</span> <span class="s2">&quot;Reyna&quot;</span><span class="p">,</span> <span class="s2">&quot;Neon&quot;</span><span class="p">,</span> <span class="s2">&quot;Phoenix&quot;</span><span class="p">,</span> <span class="s2">&quot;Raze&quot;</span><span class="p">,</span> <span class="s2">&quot;Yoru&quot;</span><span class="p">,</span> <span class="s2">&quot;Sova&quot;</span><span class="p">,</span> <span class="s2">&quot;Breach&quot;</span><span class="p">,</span> <span class="s2">&quot;Skye&quot;</span><span class="p">,</span> <span class="s2">&quot;KAY/O&quot;</span><span class="p">,</span> <span class="s2">&quot;Brimstone&quot;</span><span class="p">,</span> <span class="s2">&quot;Viper&quot;</span><span class="p">,</span> <span class="s2">&quot;Astra&quot;</span><span class="p">,</span> <span class="s2">&quot;Omen&quot;</span><span class="p">,</span> <span class="s2">&quot;Killjoy&quot;</span><span class="p">,</span> <span class="s2">&quot;Cypher&quot;</span><span class="p">,</span> <span class="s2">&quot;Chamber&quot;</span><span class="p">,</span> <span class="s2">&quot;Sage&quot;</span><span class="p">],</span>
+                                    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Rounds Played&quot;</span><span class="p">,</span> <span class="s2">&quot;Total Kills&quot;</span><span class="p">,</span> <span class="s2">&quot;Total Deaths&quot;</span><span class="p">,</span> <span class="s2">&quot;Total Assists&quot;</span><span class="p">,</span> <span class="s2">&quot;KDA&quot;</span><span class="p">,</span> <span class="s2">&quot;ADR&quot;</span><span class="p">,</span> <span class="s2">&quot;ACS&quot;</span><span class="p">])</span>
+<span class="n">win_rate</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Bind&quot;</span><span class="p">,</span> <span class="s2">&quot;Haven&quot;</span><span class="p">,</span> <span class="s2">&quot;Split&quot;</span><span class="p">,</span> <span class="s2">&quot;Ascent&quot;</span><span class="p">,</span> <span class="s2">&quot;Icebox&quot;</span><span class="p">,</span> <span class="s2">&quot;Breeze&quot;</span><span class="p">,</span> <span class="s2">&quot;Fracture&quot;</span><span class="p">],</span> 
+                     <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Jett&quot;</span><span class="p">,</span> <span class="s2">&quot;Reyna&quot;</span><span class="p">,</span> <span class="s2">&quot;Neon&quot;</span><span class="p">,</span> <span class="s2">&quot;Phoenix&quot;</span><span class="p">,</span> <span class="s2">&quot;Raze&quot;</span><span class="p">,</span> <span class="s2">&quot;Yoru&quot;</span><span class="p">,</span> <span class="s2">&quot;Sova&quot;</span><span class="p">,</span> <span class="s2">&quot;Breach&quot;</span><span class="p">,</span> <span class="s2">&quot;Skye&quot;</span><span class="p">,</span> <span class="s2">&quot;KAY/O&quot;</span><span class="p">,</span> <span class="s2">&quot;Brimstone&quot;</span><span class="p">,</span> <span class="s2">&quot;Viper&quot;</span><span class="p">,</span> <span class="s2">&quot;Astra&quot;</span><span class="p">,</span> <span class="s2">&quot;Omen&quot;</span><span class="p">,</span> <span class="s2">&quot;Killjoy&quot;</span><span class="p">,</span> <span class="s2">&quot;Cypher&quot;</span><span class="p">,</span> <span class="s2">&quot;Chamber&quot;</span><span class="p">,</span> <span class="s2">&quot;Sage&quot;</span><span class="p">])</span>
+<span class="n">pick_rate</span> <span class="o">=</span> <span class="n">pick_rate</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="n">agent_stats</span> <span class="o">=</span> <span class="n">agent_stats</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">agent_stats</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s2">&quot;KDA&quot;</span><span class="p">,</span> <span class="s2">&quot;ADR&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">win_rate</span> <span class="o">=</span> <span class="n">win_rate</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="n">pick_rate</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;# Played&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="c1">#Going through every single game and scraping each game page for the data for each player and the scores</span>
 <span class="k">for</span> <span class="n">game</span> <span class="ow">in</span> <span class="n">games</span><span class="p">:</span>
     <span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">game</span><span class="p">)</span>
+    <span class="n">total_rounds</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s2">&quot;html.parser&quot;</span><span class="p">)</span>
     <span class="n">active_game</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;vm-stats-game mod-active&quot;</span><span class="p">})</span>
+    <span class="n">team1</span> <span class="o">=</span> <span class="n">active_game</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;team&quot;</span><span class="p">})</span>
+    <span class="n">team2</span> <span class="o">=</span> <span class="n">active_game</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;team mod-right&quot;</span><span class="p">})</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">team1</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;score mod-win&quot;</span><span class="p">}):</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="mi">5</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="mi">10</span>
     <span class="n">game_map</span> <span class="o">=</span> <span class="n">active_game</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;span&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;style&quot;</span><span class="p">:</span> <span class="s2">&quot;position: relative;&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">strip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">game_map</span> <span class="o">!=</span> <span class="s2">&quot;Fracture&quot;</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">game_map</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">8</span><span class="p">):</span>
+    <span class="n">win_score</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">active_game</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;score mod-win&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">get_text</span><span class="p">())</span>
+    <span class="n">lose_score</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">active_game</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;score&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">get_text</span><span class="p">())</span>
+    <span class="n">game_rounds</span> <span class="o">=</span> <span class="n">win_score</span> <span class="o">+</span> <span class="n">lose_score</span>
+    <span class="k">if</span> <span class="n">game_map</span> <span class="o">!=</span> <span class="s2">&quot;Fracture&quot;</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">game_map</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">8</span><span class="p">:</span>
         <span class="n">game_map</span> <span class="o">=</span> <span class="n">game_map</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">game_map</span><span class="p">)</span> <span class="o">-</span> <span class="mi">4</span><span class="p">]</span>
-    <span class="n">pickrate</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="n">game_map</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;# Played&quot;</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="n">agent_table</span> <span class="o">=</span> <span class="n">active_game</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;span&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;stats-sq mod-agent small&quot;</span><span class="p">},</span> <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">agent</span> <span class="ow">in</span> <span class="n">agent_table</span><span class="p">:</span>
-        <span class="n">a</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;img&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;title&quot;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="s2">&quot;kayo&quot;</span><span class="p">:</span>
-            <span class="n">col</span> <span class="o">=</span> <span class="s2">&quot;KAY/O&quot;</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">col</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">+</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
-        <span class="n">pickrate</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="n">game_map</span><span class="p">],</span> <span class="p">[</span><span class="n">col</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="n">pickrate</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;Bind&quot;</span><span class="p">],</span> <span class="n">pickrate</span><span class="o">.</span><span class="n">columns</span><span class="o">!=</span><span class="s2">&quot;# Played&quot;</span><span class="p">]</span> <span class="o">/=</span> <span class="p">(</span><span class="n">pickrate</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span>
-<span class="n">pickrate</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;Haven&quot;</span><span class="p">],</span> <span class="n">pickrate</span><span class="o">.</span><span class="n">columns</span><span class="o">!=</span><span class="s2">&quot;# Played&quot;</span><span class="p">]</span> <span class="o">/=</span> <span class="p">(</span><span class="n">pickrate</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span>
-<span class="n">pickrate</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;Split&quot;</span><span class="p">],</span> <span class="n">pickrate</span><span class="o">.</span><span class="n">columns</span><span class="o">!=</span><span class="s2">&quot;# Played&quot;</span><span class="p">]</span> <span class="o">/=</span> <span class="p">(</span><span class="n">pickrate</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span>
-<span class="n">pickrate</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;Ascent&quot;</span><span class="p">],</span> <span class="n">pickrate</span><span class="o">.</span><span class="n">columns</span><span class="o">!=</span><span class="s2">&quot;# Played&quot;</span><span class="p">]</span> <span class="o">/=</span> <span class="p">(</span><span class="n">pickrate</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span>
-<span class="n">pickrate</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;Icebox&quot;</span><span class="p">],</span> <span class="n">pickrate</span><span class="o">.</span><span class="n">columns</span><span class="o">!=</span><span class="s2">&quot;# Played&quot;</span><span class="p">]</span> <span class="o">/=</span> <span class="p">(</span><span class="n">pickrate</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span>
-<span class="n">pickrate</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;Breeze&quot;</span><span class="p">],</span> <span class="n">pickrate</span><span class="o">.</span><span class="n">columns</span><span class="o">!=</span><span class="s2">&quot;# Played&quot;</span><span class="p">]</span> <span class="o">/=</span> <span class="p">(</span><span class="n">pickrate</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span>
-<span class="n">pickrate</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;Fracture&quot;</span><span class="p">],</span> <span class="n">pickrate</span><span class="o">.</span><span class="n">columns</span><span class="o">!=</span><span class="s2">&quot;# Played&quot;</span><span class="p">]</span> <span class="o">/=</span> <span class="p">(</span><span class="n">pickrate</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span>
-<span class="n">pickrate</span> <span class="o">=</span> <span class="n">pickrate</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">decimals</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">pickrate</span>
+    <span class="n">pick_rate</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="n">game_map</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;# Played&quot;</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">tables</span> <span class="o">=</span> <span class="n">active_game</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;table&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;wf-table-inset mod-overview&quot;</span><span class="p">})</span>
+    <span class="k">for</span> <span class="n">table</span> <span class="ow">in</span> <span class="n">tables</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">team</span> <span class="ow">in</span> <span class="n">table</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;tbody&quot;</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">player</span> <span class="ow">in</span> <span class="n">team</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;tr&quot;</span><span class="p">):</span>
+                <span class="n">agent</span> <span class="o">=</span> <span class="n">player</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;img&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;title&quot;</span><span class="p">)</span>
+                <span class="n">acs</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">player</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;span&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;side mod-side mod-both&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">get_text</span><span class="p">())</span>
+                <span class="n">kills_base</span> <span class="o">=</span> <span class="n">player</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;td&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;mod-stat mod-vlr-kills&quot;</span><span class="p">})</span>
+                <span class="n">kills</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">kills_base</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;span&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;side mod-side mod-both&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">get_text</span><span class="p">())</span>
+                <span class="n">deaths</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">player</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;span&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;side mod-both&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">get_text</span><span class="p">())</span>
+                <span class="n">assists_base</span> <span class="o">=</span> <span class="n">player</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;td&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;mod-stat mod-vlr-assists&quot;</span><span class="p">})</span>
+                <span class="n">assists</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">assists_base</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;span&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;side mod-both&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">get_text</span><span class="p">())</span>
+                <span class="n">adr_base</span> <span class="o">=</span> <span class="n">player</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;span&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;stats-sq mod-combat&quot;</span><span class="p">})</span>
+                <span class="n">adr</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">adr_base</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;span&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;side mod-both&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">get_text</span><span class="p">())</span>
+                <span class="k">if</span> <span class="n">agent</span> <span class="o">==</span> <span class="s2">&quot;kayo&quot;</span><span class="p">:</span>
+                    <span class="n">agent</span> <span class="o">=</span> <span class="s2">&quot;KAY/O&quot;</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">agent</span> <span class="o">=</span> <span class="n">agent</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">+</span> <span class="n">agent</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+                <span class="n">pick_rate</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="n">game_map</span><span class="p">],</span> <span class="p">[</span><span class="n">agent</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">agent_stats</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="n">agent</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Rounds Played&quot;</span><span class="p">]]</span> <span class="o">+=</span> <span class="n">game_rounds</span>
+                <span class="n">agent_stats</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="n">agent</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Total Kills&quot;</span><span class="p">]]</span> <span class="o">+=</span> <span class="n">kills</span>
+                <span class="n">agent_stats</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="n">agent</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Total Deaths&quot;</span><span class="p">]]</span> <span class="o">+=</span> <span class="n">deaths</span>
+                <span class="n">agent_stats</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="n">agent</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Total Assists&quot;</span><span class="p">]]</span> <span class="o">+=</span> <span class="n">assists</span>
+                <span class="n">agent_stats</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="n">agent</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;ADR&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="p">(</span><span class="n">agent_stats</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">agent</span><span class="p">,</span> <span class="s2">&quot;ADR&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">agent_stats</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">agent</span><span class="p">,</span> <span class="s2">&quot;Rounds Played&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">game_rounds</span><span class="p">)</span> <span class="o">+</span> <span class="n">adr</span> <span class="o">*</span> <span class="n">game_rounds</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">agent_stats</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">agent</span><span class="p">,</span> <span class="s2">&quot;Rounds Played&quot;</span><span class="p">])</span>
+                <span class="n">agent_stats</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="n">agent</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;ACS&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="p">(</span><span class="n">agent_stats</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">agent</span><span class="p">,</span> <span class="s2">&quot;ACS&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">agent_stats</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">agent</span><span class="p">,</span> <span class="s2">&quot;Rounds Played&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">game_rounds</span><span class="p">)</span> <span class="o">+</span> <span class="n">acs</span> <span class="o">*</span> <span class="n">game_rounds</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">agent_stats</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">agent</span><span class="p">,</span> <span class="s2">&quot;Rounds Played&quot;</span><span class="p">])</span>
+                <span class="k">if</span> <span class="n">count</span> <span class="o">&gt;=</span> <span class="n">start</span> <span class="ow">and</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">:</span>
+                    <span class="n">win_rate</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="n">game_map</span><span class="p">],</span> <span class="p">[</span><span class="n">agent</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">100</span>
+                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="n">pick_rate</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;Bind&quot;</span><span class="p">],</span> <span class="n">pick_rate</span><span class="o">.</span><span class="n">columns</span><span class="o">!=</span><span class="s2">&quot;# Played&quot;</span><span class="p">]</span> <span class="o">/=</span> <span class="p">(</span><span class="n">pick_rate</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">pick_rate</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;Haven&quot;</span><span class="p">],</span> <span class="n">pick_rate</span><span class="o">.</span><span class="n">columns</span><span class="o">!=</span><span class="s2">&quot;# Played&quot;</span><span class="p">]</span> <span class="o">/=</span> <span class="p">(</span><span class="n">pick_rate</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">pick_rate</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;Split&quot;</span><span class="p">],</span> <span class="n">pick_rate</span><span class="o">.</span><span class="n">columns</span><span class="o">!=</span><span class="s2">&quot;# Played&quot;</span><span class="p">]</span> <span class="o">/=</span> <span class="p">(</span><span class="n">pick_rate</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">pick_rate</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;Ascent&quot;</span><span class="p">],</span> <span class="n">pick_rate</span><span class="o">.</span><span class="n">columns</span><span class="o">!=</span><span class="s2">&quot;# Played&quot;</span><span class="p">]</span> <span class="o">/=</span> <span class="p">(</span><span class="n">pick_rate</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">pick_rate</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;Icebox&quot;</span><span class="p">],</span> <span class="n">pick_rate</span><span class="o">.</span><span class="n">columns</span><span class="o">!=</span><span class="s2">&quot;# Played&quot;</span><span class="p">]</span> <span class="o">/=</span> <span class="p">(</span><span class="n">pick_rate</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">pick_rate</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;Breeze&quot;</span><span class="p">],</span> <span class="n">pick_rate</span><span class="o">.</span><span class="n">columns</span><span class="o">!=</span><span class="s2">&quot;# Played&quot;</span><span class="p">]</span> <span class="o">/=</span> <span class="p">(</span><span class="n">pick_rate</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">pick_rate</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;Fracture&quot;</span><span class="p">],</span> <span class="n">pick_rate</span><span class="o">.</span><span class="n">columns</span><span class="o">!=</span><span class="s2">&quot;# Played&quot;</span><span class="p">]</span> <span class="o">/=</span> <span class="p">(</span><span class="n">pick_rate</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">win_rate</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;Bind&quot;</span><span class="p">]]</span> <span class="o">/=</span> <span class="n">pick_rate</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">win_rate</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;Haven&quot;</span><span class="p">]]</span> <span class="o">/=</span> <span class="n">pick_rate</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">win_rate</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;Split&quot;</span><span class="p">]]</span> <span class="o">/=</span> <span class="n">pick_rate</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">win_rate</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;Ascent&quot;</span><span class="p">]]</span> <span class="o">/=</span> <span class="n">pick_rate</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">win_rate</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;Icebox&quot;</span><span class="p">]]</span> <span class="o">/=</span> <span class="n">pick_rate</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">win_rate</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;Breeze&quot;</span><span class="p">]]</span> <span class="o">/=</span> <span class="n">pick_rate</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">win_rate</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;Fracture&quot;</span><span class="p">]]</span> <span class="o">/=</span> <span class="n">pick_rate</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">pick_rate</span> <span class="o">=</span> <span class="n">pick_rate</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">decimals</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">agent_stats</span> <span class="o">=</span> <span class="n">agent_stats</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">decimals</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">win_rate</span> <span class="o">=</span> <span class="n">win_rate</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">decimals</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">win_rate</span>
 </pre></div>
 
      </div>
@@ -14691,7 +14740,235 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[124]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[166]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Jett</th>
+      <th>Reyna</th>
+      <th>Neon</th>
+      <th>Phoenix</th>
+      <th>Raze</th>
+      <th>Yoru</th>
+      <th>Sova</th>
+      <th>Breach</th>
+      <th>Skye</th>
+      <th>KAY/O</th>
+      <th>Brimstone</th>
+      <th>Viper</th>
+      <th>Astra</th>
+      <th>Omen</th>
+      <th>Killjoy</th>
+      <th>Cypher</th>
+      <th>Chamber</th>
+      <th>Sage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Bind</th>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>100.0</td>
+      <td>16.67</td>
+      <td>0.00</td>
+      <td>16.67</td>
+      <td>100.00</td>
+      <td>0.00</td>
+      <td>66.67</td>
+      <td>83.33</td>
+      <td>16.67</td>
+      <td>16.67</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>66.67</td>
+      <td>16.67</td>
+    </tr>
+    <tr>
+      <th>Haven</th>
+      <td>77.78</td>
+      <td>22.22</td>
+      <td>22.22</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>22.22</td>
+      <td>55.56</td>
+      <td>77.78</td>
+      <td>22.22</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>11.11</td>
+      <td>88.89</td>
+      <td>22.22</td>
+      <td>22.22</td>
+      <td>55.56</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>Split</th>
+      <td>40.00</td>
+      <td>0.00</td>
+      <td>10.00</td>
+      <td>0.0</td>
+      <td>90.0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>30.00</td>
+      <td>30.00</td>
+      <td>10.00</td>
+      <td>0.00</td>
+      <td>30.00</td>
+      <td>50.00</td>
+      <td>50.00</td>
+      <td>0.00</td>
+      <td>50.00</td>
+      <td>20.00</td>
+      <td>90.00</td>
+    </tr>
+    <tr>
+      <th>Ascent</th>
+      <td>100.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>100.00</td>
+      <td>0.00</td>
+      <td>25.00</td>
+      <td>66.67</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>25.00</td>
+      <td>75.00</td>
+      <td>75.00</td>
+      <td>0.00</td>
+      <td>25.00</td>
+      <td>8.33</td>
+    </tr>
+    <tr>
+      <th>Icebox</th>
+      <td>83.33</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>100.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>33.33</td>
+      <td>0.00</td>
+      <td>100.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>16.67</td>
+      <td>0.00</td>
+      <td>66.67</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <th>Breeze</th>
+      <td>100.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>100.00</td>
+      <td>0.00</td>
+      <td>33.33</td>
+      <td>66.67</td>
+      <td>0.00</td>
+      <td>100.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>100.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>Fracture</th>
+      <td>12.50</td>
+      <td>0.00</td>
+      <td>62.50</td>
+      <td>0.0</td>
+      <td>37.5</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>100.00</td>
+      <td>0.00</td>
+      <td>50.00</td>
+      <td>62.50</td>
+      <td>37.50</td>
+      <td>37.50</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>100.00</td>
+      <td>0.00</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[167]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pick_rate</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[167]:</div>
 
 
 
@@ -14743,152 +15020,402 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>0.00</td>
       <td>0.00</td>
       <td>0.0</td>
-      <td>100.0</td>
-      <td>16.67</td>
-      <td>8.33</td>
-      <td>16.67</td>
-      <td>100.00</td>
+      <td>1.00</td>
+      <td>0.17</td>
+      <td>0.08</td>
+      <td>0.17</td>
+      <td>1.00</td>
       <td>0.00</td>
-      <td>50.00</td>
-      <td>83.33</td>
-      <td>33.33</td>
-      <td>16.67</td>
+      <td>0.50</td>
+      <td>0.83</td>
+      <td>0.33</td>
+      <td>0.17</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>41.67</td>
-      <td>33.33</td>
+      <td>0.42</td>
+      <td>0.33</td>
     </tr>
     <tr>
       <th>Haven</th>
       <td>9</td>
-      <td>83.33</td>
-      <td>16.67</td>
-      <td>16.67</td>
+      <td>0.83</td>
+      <td>0.17</td>
+      <td>0.17</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.00</td>
-      <td>22.22</td>
-      <td>66.67</td>
-      <td>77.78</td>
-      <td>16.67</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>22.22</td>
-      <td>77.78</td>
-      <td>50.00</td>
-      <td>16.67</td>
-      <td>33.33</td>
+      <td>0.22</td>
+      <td>0.67</td>
+      <td>0.78</td>
+      <td>0.17</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.22</td>
+      <td>0.78</td>
+      <td>0.50</td>
+      <td>0.17</td>
+      <td>0.33</td>
       <td>0.00</td>
     </tr>
     <tr>
       <th>Split</th>
       <td>10</td>
-      <td>40.00</td>
+      <td>0.40</td>
       <td>0.00</td>
-      <td>5.00</td>
+      <td>0.05</td>
       <td>0.0</td>
-      <td>80.0</td>
+      <td>0.80</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>35.00</td>
-      <td>45.00</td>
-      <td>5.00</td>
+      <td>0.35</td>
+      <td>0.45</td>
+      <td>0.05</td>
       <td>0.00</td>
-      <td>40.00</td>
-      <td>50.00</td>
-      <td>50.00</td>
-      <td>5.00</td>
-      <td>40.00</td>
-      <td>15.00</td>
-      <td>90.00</td>
+      <td>0.40</td>
+      <td>0.50</td>
+      <td>0.50</td>
+      <td>0.05</td>
+      <td>0.40</td>
+      <td>0.15</td>
+      <td>0.90</td>
     </tr>
     <tr>
       <th>Ascent</th>
       <td>12</td>
-      <td>100.00</td>
+      <td>1.00</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.0</td>
-      <td>0.0</td>
       <td>0.00</td>
-      <td>100.00</td>
       <td>0.00</td>
-      <td>12.50</td>
-      <td>70.83</td>
-      <td>4.17</td>
+      <td>1.00</td>
       <td>0.00</td>
-      <td>16.67</td>
-      <td>79.17</td>
-      <td>75.00</td>
-      <td>4.17</td>
-      <td>25.00</td>
-      <td>12.50</td>
+      <td>0.12</td>
+      <td>0.71</td>
+      <td>0.04</td>
+      <td>0.00</td>
+      <td>0.17</td>
+      <td>0.79</td>
+      <td>0.75</td>
+      <td>0.04</td>
+      <td>0.25</td>
+      <td>0.12</td>
     </tr>
     <tr>
       <th>Icebox</th>
       <td>12</td>
-      <td>79.17</td>
-      <td>8.33</td>
+      <td>0.79</td>
+      <td>0.08</td>
       <td>0.00</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.00</td>
-      <td>100.00</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>37.50</td>
+      <td>1.00</td>
       <td>0.00</td>
-      <td>100.00</td>
       <td>0.00</td>
-      <td>4.17</td>
-      <td>16.67</td>
+      <td>0.38</td>
       <td>0.00</td>
-      <td>58.33</td>
-      <td>95.83</td>
+      <td>1.00</td>
+      <td>0.00</td>
+      <td>0.04</td>
+      <td>0.17</td>
+      <td>0.00</td>
+      <td>0.58</td>
+      <td>0.96</td>
     </tr>
     <tr>
       <th>Breeze</th>
       <td>3</td>
-      <td>100.00</td>
+      <td>1.00</td>
       <td>0.00</td>
       <td>0.00</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.00</td>
-      <td>100.00</td>
-      <td>0.00</td>
-      <td>16.67</td>
-      <td>83.33</td>
-      <td>0.00</td>
-      <td>100.00</td>
       <td>0.00</td>
       <td>0.00</td>
+      <td>1.00</td>
+      <td>0.00</td>
+      <td>0.17</td>
+      <td>0.83</td>
+      <td>0.00</td>
+      <td>1.00</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>100.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1.00</td>
       <td>0.00</td>
     </tr>
     <tr>
       <th>Fracture</th>
       <td>8</td>
-      <td>37.50</td>
+      <td>0.38</td>
       <td>0.00</td>
-      <td>37.50</td>
+      <td>0.38</td>
       <td>0.0</td>
-      <td>37.5</td>
+      <td>0.38</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>93.75</td>
+      <td>0.94</td>
       <td>0.00</td>
-      <td>31.25</td>
-      <td>68.75</td>
-      <td>43.75</td>
-      <td>31.25</td>
+      <td>0.31</td>
+      <td>0.69</td>
+      <td>0.44</td>
+      <td>0.31</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>18.75</td>
-      <td>81.25</td>
-      <td>18.75</td>
+      <td>0.19</td>
+      <td>0.81</td>
+      <td>0.19</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[168]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">agent_stats</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[168]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Rounds Played</th>
+      <th>Total Kills</th>
+      <th>Total Deaths</th>
+      <th>Total Assists</th>
+      <th>KDA</th>
+      <th>ADR</th>
+      <th>ACS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Jett</th>
+      <td>1847</td>
+      <td>1326</td>
+      <td>1238</td>
+      <td>244</td>
+      <td>0.0</td>
+      <td>140.88</td>
+      <td>222.48</td>
+    </tr>
+    <tr>
+      <th>Reyna</th>
+      <td>118</td>
+      <td>79</td>
+      <td>84</td>
+      <td>18</td>
+      <td>0.0</td>
+      <td>139.45</td>
+      <td>215.15</td>
+    </tr>
+    <tr>
+      <th>Neon</th>
+      <td>234</td>
+      <td>177</td>
+      <td>143</td>
+      <td>35</td>
+      <td>0.0</td>
+      <td>156.19</td>
+      <td>231.32</td>
+    </tr>
+    <tr>
+      <th>Phoenix</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>Raze</th>
+      <td>808</td>
+      <td>573</td>
+      <td>561</td>
+      <td>181</td>
+      <td>0.0</td>
+      <td>164.42</td>
+      <td>246.80</td>
+    </tr>
+    <tr>
+      <th>Yoru</th>
+      <td>41</td>
+      <td>44</td>
+      <td>31</td>
+      <td>7</td>
+      <td>0.0</td>
+      <td>177.54</td>
+      <td>290.59</td>
+    </tr>
+    <tr>
+      <th>Sova</th>
+      <td>1414</td>
+      <td>907</td>
+      <td>894</td>
+      <td>404</td>
+      <td>0.0</td>
+      <td>138.44</td>
+      <td>203.31</td>
+    </tr>
+    <tr>
+      <th>Breach</th>
+      <td>809</td>
+      <td>438</td>
+      <td>499</td>
+      <td>128</td>
+      <td>0.0</td>
+      <td>112.20</td>
+      <td>168.53</td>
+    </tr>
+    <tr>
+      <th>Skye</th>
+      <td>921</td>
+      <td>518</td>
+      <td>573</td>
+      <td>168</td>
+      <td>0.0</td>
+      <td>117.86</td>
+      <td>177.42</td>
+    </tr>
+    <tr>
+      <th>KAY/O</th>
+      <td>969</td>
+      <td>575</td>
+      <td>656</td>
+      <td>432</td>
+      <td>0.0</td>
+      <td>122.63</td>
+      <td>192.72</td>
+    </tr>
+    <tr>
+      <th>Brimstone</th>
+      <td>402</td>
+      <td>236</td>
+      <td>265</td>
+      <td>140</td>
+      <td>0.0</td>
+      <td>124.32</td>
+      <td>191.33</td>
+    </tr>
+    <tr>
+      <th>Viper</th>
+      <td>1295</td>
+      <td>789</td>
+      <td>817</td>
+      <td>347</td>
+      <td>0.0</td>
+      <td>130.02</td>
+      <td>194.75</td>
+    </tr>
+    <tr>
+      <th>Astra</th>
+      <td>657</td>
+      <td>426</td>
+      <td>394</td>
+      <td>206</td>
+      <td>0.0</td>
+      <td>137.48</td>
+      <td>208.65</td>
+    </tr>
+    <tr>
+      <th>Omen</th>
+      <td>1099</td>
+      <td>692</td>
+      <td>684</td>
+      <td>343</td>
+      <td>0.0</td>
+      <td>123.32</td>
+      <td>191.10</td>
+    </tr>
+    <tr>
+      <th>Killjoy</th>
+      <td>778</td>
+      <td>447</td>
+      <td>507</td>
+      <td>118</td>
+      <td>0.0</td>
+      <td>128.51</td>
+      <td>188.91</td>
+    </tr>
+    <tr>
+      <th>Cypher</th>
+      <td>358</td>
+      <td>214</td>
+      <td>216</td>
+      <td>68</td>
+      <td>0.0</td>
+      <td>126.72</td>
+      <td>192.48</td>
+    </tr>
+    <tr>
+      <th>Chamber</th>
+      <td>1246</td>
+      <td>995</td>
+      <td>789</td>
+      <td>164</td>
+      <td>0.0</td>
+      <td>151.02</td>
+      <td>238.15</td>
+    </tr>
+    <tr>
+      <th>Sage</th>
+      <td>1204</td>
+      <td>717</td>
+      <td>806</td>
+      <td>327</td>
+      <td>0.0</td>
+      <td>122.54</td>
+      <td>190.84</td>
     </tr>
   </tbody>
 </table>
